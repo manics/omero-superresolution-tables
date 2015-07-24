@@ -100,9 +100,9 @@ def store_data(t, df, dfcolindex):
     assert len(cols) == len(dfcolindex)
     for offset in xrange(0, df.shape[0], rowchunk):
         endoffset = min(offset + rowchunk, df.shape[0])
-        print 'Storing rows %d:%d' % (offset, endoffset)
+        print 'Storing rows %d:%d' % (offset, endoffset - 1)
         for (col, dfi) in zip(cols, dfcolindex):
-            col.values = df.iloc[offset:(offset + endoffset), dfi]
+            col.values = df.iloc[offset:endoffset, dfi]
         t.addData(cols)
 
 
