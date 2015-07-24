@@ -98,12 +98,12 @@ def store_data(t, df, dfcolindex):
     rowchunk = 1024
     cols = t.getHeaders()
     assert len(cols) == len(dfcolindex)
-    for offset in xrange(0, df.shape[1], 1024):
-        endoffset = min(offset + rowchunk, df.shape[1])
+    for offset in xrange(0, df.shape[0], rowchunk):
+        endoffset = min(offset + rowchunk, df.shape[0])
         print 'Storing rows %d:%d' % (offset, endoffset)
         for (col, dfi) in zip(cols, dfcolindex):
             col.values = df.iloc[offset:(offset + endoffset), dfi]
-    t.addData(cols)
+        t.addData(cols)
 
 
 def read_sr_file(fname):
