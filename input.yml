@@ -1,0 +1,31 @@
+---
+# Specification file for importing superresolution data file
+
+# OMERO connection parameters
+host: localhost
+user: username
+password: 
+
+# Input filename
+input: sample.tsv
+
+# Name of the table in OMERO
+tablename: sample-sr.h5
+
+# Attach the table to this OMERO object, specified in the form type:id
+parent: Dataset:1
+
+# Column name mapping
+# Use empty if a column should be included without transformation
+# (must be convertible to a Double)
+# Unlisted columns will be omitted from the table
+columnmap:
+    id: id
+    frame: frame
+    x [nm]: x
+    y [nm]: y
+    sigma [nm]:
+    intensity [photon]: intensity
+    offset [photon]:
+    bkgstd [photon]:
+    uncertainty [nm]: precision
