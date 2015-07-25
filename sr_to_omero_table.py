@@ -145,5 +145,10 @@ def main():
         raise Exception('Usage: %s input.yml' % os.path.basename(sys.argv[0]))
     return run(sys.argv[1])
 
+
 if __name__ == '__main__':
-    main()
+    # Don't run if inside ipython
+    try:
+        __IPYTHON__
+    except NameError:
+        main()
