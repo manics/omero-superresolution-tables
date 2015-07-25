@@ -1,0 +1,13 @@
+---
+# Specification file for importing superresolution data file
+
+# OMERO connection parameters
+host: localhost
+user: username
+password: 
+
+# Image ID
+imageid: 1
+
+# Table ID
+tableid: 1
